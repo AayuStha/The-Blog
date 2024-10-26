@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #090D1F;
+    color: #c3c3c3;
+}
+
+html, body {
+    height: 100%; 
+}
+
+body {
+    display: flex;
+    flex-direction: column; 
+    margin-top: 24px;
+    margin-left: 50px !important;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align items to the left */
+    gap: 10px;
+    margin: 20px;
+    padding: 15px;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #c3c3c3;
+}
+
+footer a:hover {
+    color: #4257b6;
+}
+
+h1 {
+    color: #FFF;
+    font-size: 3.5vw;
+    margin-bottom: 4vh;
+}
+
+h1 a {
+    text-decoration: none;
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav a {
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 300;
+    color: #FFF;
+}
+
+hr {
+    margin-top: 24px;
+    margin-right: 50px;
+}
+
+.card-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.card {
+    margin: 20px;
+    border: 2px solid #cecece;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    padding: 15px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card p {
+    margin-top: 15px;
+    color: #FFF;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    position: relative;
+    line-height: 3vh;
+}
+
+#content::after {
+    content: '..Read more';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #090D1F; 
+    padding: 0 5px;
+    cursor: pointer;
+}
+
+.card-title {
+    color: #FFF;
+    font-size: 1.2rem;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+#time {
+    color: #6941C6;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .card-items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .card-items {
+        grid-template-columns: 1fr;
+    }
+    body {
+        transform: translateX(-5vw) !important;
+    }
+}

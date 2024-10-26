@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/newsletter.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1><a href="/">THE BLOG</a></h1>
+    <hr>
+
+    <main>
+        <div class="card-items">          
+            <% blogs.forEach(blog => { %>
+                <div class="card" onclick="window.location.href='/blog/<%= blog.id %>'" data-id="<%= blog.id %>">
+                    <img src="<%= blog.imgSrc %>" alt="Blog Image">
+                    <h2 class="card-title"><%= blog.title %></h2>
+                    <p id="content"><%= blog.content %></p>
+                    <p id="time"><%= blog.time %></p>
+                    <p>Blog ID: <%= blog.id %></p>
+                </div>
+            <% }) %>
+        </div>       
+    </main>
+
+    <hr>
+
+    <div class="newsletter">
+        <h4>Newsletters</h4>
+        <h1>Stories and Interviews</h1>
+        
+        <p>Subscribe to learn about new product features, the latest in technology, <br>
+            solutions, and updates.</p>
+
+        <div>
+            <input type="text" placeholder="Enter your email">
+            <button class="button">
+                Subscribe
+            </button>
+            <br>
+        </div>
+    </div>
+
+    <%- include('./partials/footer.ejs') %>
+    <script>
+        document.querySelectorAll(".card").forEach(card => {
+            card.addEventListener("click", function() {
+                const id = card.getAttribute('data-id');
+                window.location.href = `/blog/${id}`;
+            });
+        });
+
+        
+    </script>
+</body>
+</html>

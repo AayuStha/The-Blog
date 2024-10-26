@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #090D1F;
+    margin: 20px;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.new-blog-form {
+    background-color: #fff;
+    padding: 40px 50px; /* Adjust padding to be consistent */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+.new-blog-form h1 {
+    background-color: #fff;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.new-blog-form form {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+}
+
+.new-blog-form input[type="text"],
+.new-blog-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: transparent; /* Ensure background is transparent */
+    color: #333; /* Text color */
+}
+
+.new-blog-form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.image-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.image-inputs input{
+    margin-bottom: 10px !important;
+}
+.image-inputs span{
+    background-color: #fff;
+    margin: 5px;
+    color: #090D1F;
+}
+
+.image-inputs input[type="file"] {
+    display: none;
+}
+
+.image-inputs label {
+    background-color: #7F56D9;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.image-inputs label:hover {
+    background-color: #6b46c1;
+}
+
+.new-blog-form button {
+    padding: 10px 20px;
+    background-color: #7F56D9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.new-blog-form button:hover {
+    background-color: #6b46c1;
+}

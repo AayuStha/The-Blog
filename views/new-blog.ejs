@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/newblog.css">
+    <title>Add New Blog</title>
+</head>
+<body>
+    <%- include('./partials/navbar.ejs') %>
+
+    <div class="form-container">
+        <div class="new-blog-form">
+            <h1>Add New Blog</h1>
+            <form id="newBlogForm" action="/new-blog" method="POST" enctype="multipart/form-data">
+                <input type="text" name="title" placeholder="Blog Title" required>
+                
+                <div class="image-inputs">
+                    <input type="text" name="imgSrc" id="imgSrc" placeholder="Image URL">
+                    <span>or</span>
+                    <input type="file" name="imageUpload" id="imageUpload" accept="image/*">
+                    <label for="imageUpload" id="imageUploadLabel">Upload Image</label>
+                </div>
+                
+                <div id="imagePreviewContainer" style="display: none;">
+                    <img id="imagePreview" src="" alt="Image Preview" style="max-width: 100%; margin-top: 20px;">
+                </div>
+                
+                <textarea name="content" placeholder="Blog Content" required></textarea>
+                <button type="submit">Add Blog</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function() {
+            var file = this.files[0];
+            var fileName = file ? file.name : '';
+            document.getElementById('imageUploadLabel').textContent = fileName || 'Upload Image';
+
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imagePreview').src = e.target.result;
+                    document.getElementById('imagePreviewContainer').style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                document.getElementById('imagePreviewContainer').style.display = 'none';
+            }
+        });
+
+        document.getElementById('newBlogForm').addEventListener('submit', function(event) {
+            var imgSrc = document.getElementById('imgSrc').value;
+            var imageUpload = document.getElementById('imageUpload').files.length;
+
+            if (!imgSrc && !imageUpload) {
+                alert('Please provide either an image URL or upload an image.');
+                event.preventDefault();
+            } else if (imgSrc && imageUpload) {
+                alert('Please provide either an image URL or upload an image, not both.');
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
