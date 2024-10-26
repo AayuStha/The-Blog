@@ -60,3 +60,5 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B43E6A3E7E474563AF5024C67BBC62DC }}
           package: .
+          start-script: 'npm start'  # Change here to specify the start command
+          dev-script: 'npm run dev'  # Optional: if you want to run the dev script
