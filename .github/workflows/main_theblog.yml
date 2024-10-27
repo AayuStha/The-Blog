@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10  # Set a timeout to prevent indefinite runs
 
     steps:
       - uses: actions/checkout@v4
@@ -31,8 +32,11 @@ jobs:
 
       - name: npm install and test
         run: |
-          npm install
-          npm run test --if-present
+          echo "Starting npm install..."
+          npm install --silent  # Run npm install with reduced output
+          echo "npm install completed, starting tests..."
+          npm run test --if-present -- --ci  # Run tests with CI mode if applicable
+          echo "Tests completed."
         env:
           MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
